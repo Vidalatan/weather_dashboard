@@ -1,0 +1,57 @@
+:root {
+    --theme-primary: #D3D0CB;
+    --theme-light: #E7E5DF;
+    --theme-dark: #393E41;
+    --theme-accent1: #44BBA4;
+    --theme-accent2: #E7BB41;
+}
+
+h1{
+    margin-bottom: 0;
+    background-image: linear-gradient(115deg, var(--theme-accent1), var(--theme-accent2));
+    text-align: center;
+}
+
+body {
+    background-color: var(--theme-primary);
+}
+
+#search-button {
+    background-color: var(--theme-accent2);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.break {
+    background-color: var(--theme-dark);
+    height: 2px;
+}
+
+.cityButton {
+    background-color: var(--theme-accent1);
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.cityButton:hover {
+    background-color: var(--theme-accent2);
+}
+
+#display-city {
+    border: 2px solid var(--theme-dark);
+    border-radius: 5px;
+    padding: 1%;
+}
+
+.card {
+    background-color: var(--theme-dark);
+    color: var(--theme-light);
+    padding: 1%;
+}
+
+.card img {
+    width: 25px;
+    height: 25px;
+}

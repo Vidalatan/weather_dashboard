@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+      <!-- Full page container -->
+    <div class="container-fluid px-0">
+        <!-- Main banner header -->
+        <h1 class="container-fluid py-3">Weather Dashboard</h1>
+
+        <!-- Container for main content area -->
+        <main class="container-fluid py-2">
+            <div class="row">
+                <!-- Column for search area -->
+                <div class="col-3 row-cols-1 px-4">
+                    <h4>Search for a City</h3>
+                    
+                    <input id="search-bar" type="text" class="row my-3" placeholder="San Diego">
+                    <button id="search-button" class="row my-3">Search</button>
+
+                    <div class="break row"></div>
+
+                    <div class="accordion row my-3">
+                        <div id="saved-cities" class="accordion-item px-0">
+                            <h2 id="firstCity" class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#savedCitiesCollapse">Saved Cities</button>
+                            </h2>
+
+                            <!-- Accordion Buttons go here -->
+                            <!-- <div id="savedCitiesCollapse" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <button class="cityButton">City name</button>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Column for displayed content -->
+                <div class="col row-cols-1">
+                    <!-- upper row for the displayed city -->
+                    <div id="display-city" class="row">
+                        <h3>City Name Here</h3>
+                        <div class="row">
+                            <div class="row row-cols-1 py-2">Temp:</div>
+                            <div class="row row-cols-1 py-2">Wind:</div>
+                            <div class="row row-cols-1 py-2">Humidity:</div>
+                            <div class="row row-cols-1 py-2">UV Index:</div>
+                        </div>
+                    </div>
+    
+                    <!-- lower row for displayed forecast -->
+                    <div id="display-forecast" class="row my-3">
+                        <h4>5-Day Forecast:</h4>
+                        <div id="forcast-list" class="row justify-content-evenly">
+
+                            <!-- Forecast Cards go here -->
+                            <!-- <div class="card col mx-2">
+                                <h5>dd/mm/yyyy</h5>
+                                <img src="https://via.placeholder.com/100x100" alt="">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Temp:</li>
+                                        <li>Wind:</li>
+                                        <li>Humidity:</li>
+                                    </ul>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+
+
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
