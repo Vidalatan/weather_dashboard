@@ -69,6 +69,7 @@ if (localStorage.length > 0) {
             .on("click", event => {
                 getCurrentCoordsWeather(coords, null, city_name)
             }))))
+            getCurrentCoordsWeather(coords, null, city_name)
         }
     }
 }
@@ -97,7 +98,7 @@ $('#search-button').on("click", event => {
             .on("click", event => {
                 getCurrentCoordsWeather(coords, event)
             }))))
-            return coords;
+            getCurrentCoordsWeather(coords, null, city)
     }).catch((e) => {
         if (e.message === "city not found") { alert("City was not found") }
         else if (e.message === "city exists") { alert("City already saved") }
