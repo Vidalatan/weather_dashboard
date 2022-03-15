@@ -50,30 +50,28 @@
                 <div class="col row-cols-1">
                     <!-- upper row for the displayed city -->
                     <div id="display-city" class="row">
-                        <h3>City Name Here</h3>
+                        <h3 id="city-name"></h3>
                         <div class="row">
-                            <div class="row row-cols-1 py-2">Temp: <span id="display-temp"></span></div>
-                            <div class="row row-cols-1 py-2">Wind: <span id="display-wind"></span></div>
-                            <div class="row row-cols-1 py-2">Humidity: <span id="display-humidity"></span></div>
-                            <div class="row row-cols-1 py-2">UV Index: <span id="display-uvi"></span></div>
+                            <div class="row row-cols-2 py-2">Temp: <span id="display-temp"></span></div>
+                            <div class="row row-cols-2 py-2">Wind: <span id="display-wind_speed"></span></div>
+                            <div class="row row-cols-2 py-2">Humidity: <span id="display-humidity"></span></div>
+                            <div class="row row-cols-2 py-2">UV Index: <span id="display-uvi"></span></div>
                         </div>
                     </div>
     
                     <!-- lower row for displayed forecast -->
                     <div id="display-forecast" class="row my-3">
                         <h4>5-Day Forecast:</h4>
-                        <div id="forcast-list" class="row justify-content-evenly">
+                        <div id="forecast-list" class="row justify-content-evenly">
 
                             <!-- Forecast Cards go here -->
                             <!-- <div class="card col mx-2">
                                 <h5>dd/mm/yyyy</h5>
                                 <img src="https://via.placeholder.com/100x100" alt="">
                                 <div class="card-body">
-                                    <ul>
-                                        <li>Temp:</li>
-                                        <li>Wind:</li>
-                                        <li>Humidity:</li>
-                                    </ul>
+                                    <div class="row">Temp: 100</div>
+                                    <div class="row">wind: 100</div>
+                                    <div class="row">Humidity: 100</div>
                                 </div>
                             </div> -->
 
@@ -89,6 +87,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- Dashboard Script -->
     <script src="./Assets/js/script.js"></script>
   </body>
