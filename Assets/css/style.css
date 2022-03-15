@@ -20,7 +20,10 @@ body {
     background-color: var(--theme-accent2);
     border: none;
     border-radius: 5px;
-    text-align: center;
+}
+
+#search-button:hover {
+    background-color: var(--theme-accent1);
 }
 
 .break {
