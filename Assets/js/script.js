@@ -76,6 +76,7 @@ if (localStorage.length > 0) {
 
 // Gets the coordinates of a given city and adds it to the list of saved cities
 $('#search-button').on("click", event => {
+    event.preventDefault()
     let city = $("#search-bar").val().toUpperCase();
     let requestUrl = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+APIKey;  // uses search bar's content to create request for that city
 
@@ -94,7 +95,8 @@ $('#search-button').on("click", event => {
         localStorage.setItem("weather-dash:"+city, JSON.stringify(coords))
             $("#saved-cities").append($("<div>").addClass("accordion-collapse collapse show "+city.replace(/ /g, "-")).attr("id","savedCitiesCollapse").attr("aria-labelledby","headingOne")
             .append($("<div>").addClass("accordion-body")
-            .append($("<button>").addClass("cityButton").text(city)  // Adds city to list based on data pulled from api
+            .append($("<button>").addClass("cityButton").text(city)
+            .attr("data-bs-toggle", "tooltip").attr("title", "You can press the 'Delete' key to remove a saved city")  // Adds city to list based on data pulled from api
             .on("click", event => {
                 getCurrentCoordsWeather(coords, event)
             }))))
