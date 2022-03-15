@@ -61,9 +61,10 @@ if (localStorage.length > 0) {
             let coords = JSON.parse(localStorage.getItem(localStorage.key(index)))
             let city_name = localStorage.key(index).substring(localStorage.key(index).indexOf(":")+1) // gets city name from substring of key using the ":" character
 
-            $("#saved-cities").append($("<div>").addClass("accordion-collapse collapse show").attr("id","savedCitiesCollapse").attr("aria-labelledby","headingOne")
+            $("#saved-cities").append($("<div>").addClass("accordion-collapse collapse show "+city_name.replace(/ /g, "-")).attr("id","savedCitiesCollapse").attr("aria-labelledby","headingOne")
             .append($("<div>").addClass("accordion-body")
-            .append($("<button>").addClass("cityButton").text(city_name)  // Adds city list based on data pulled from local storage
+            .append($("<button>").addClass("cityButton").text(city_name)
+            .attr("data-bs-toggle", "tooltip").attr("title", "You can press the 'Delete' key to remove a saved city")  // Adds city list based on data pulled from local storage
             .on("click", event => {
                 getCurrentCoordsWeather(coords, null, city_name)
             }))))
@@ -91,7 +92,7 @@ $('#search-button').on("click", event => {
         return data.coord
     }).then(coords => {
         localStorage.setItem("weather-dash:"+city, JSON.stringify(coords))
-            $("#saved-cities").append($("<div>").addClass("accordion-collapse collapse show").attr("id","savedCitiesCollapse").attr("aria-labelledby","headingOne")
+            $("#saved-cities").append($("<div>").addClass("accordion-collapse collapse show "+city.replace(/ /g, "-")).attr("id","savedCitiesCollapse").attr("aria-labelledby","headingOne")
             .append($("<div>").addClass("accordion-body")
             .append($("<button>").addClass("cityButton").text(city)  // Adds city to list based on data pulled from api
             .on("click", event => {
@@ -102,4 +103,26 @@ $('#search-button').on("click", event => {
         if (e.message === "city not found") { alert("City was not found") }    // Alert user that city was not found
         else if (e.message === "city exists") { alert("City already saved") }  // Alert user that city already saved
     })
+})
+
+$(document).keyup(event => {
+    let proceed = false;
+    (event.originalEvent.key === "Delete") && (proceed = confirm("Would you like to remove the currently displayed city from your saved list?"));
+    if (proceed) {
+        $("#forecast-list").children().remove()
+        let city_name = $("#city-name").text().substring(0, $("#city-name").text().indexOf("(")-1)
+
+        $("#saved-cities").children("."+city_name.replace(/ /g, "-")).remove()
+        for (index = 0; index < localStorage.length; index++) {
+            if(localStorage.key(index).includes("weather-dash:"+city_name)) {
+                localStorage.removeItem(localStorage.key(index));
+            }
+        }
+
+        $("#city-name").text("").children().remove()
+        $("#display-temp").text("")
+        $("#display-wind_speed").text("")
+        $("#display-humidity").text("")
+        $("#display-uvi").removeClass().text("")
+    }
 })
