@@ -15,17 +15,19 @@
       <!-- Full page container -->
     <div class="container-fluid px-0">
         <!-- Main banner header -->
-        <h1 class="container-fluid py-3">Weather Dashboard</h1>
+        <header>
+            <h1 class="container-fluid py-3">Weather Dashboard</h1>
+        </header>
 
         <!-- Container for main content area -->
         <main class="container-fluid py-2">
             <div class="row">
                 <!-- Column for search area -->
-                <div class="col-3 row-cols-1 px-4">
+                <section class="col-3 row-cols-1 px-4">
                     <h4>Search for a City</h3>
                     
                     <form class="row px-0">
-                        <input id="search-bar" type="text" class="row-fluid my-3" placeholder="San Diego">
+                        <input id="search-bar" type="text" class="row-fluid my-1" placeholder="San Diego">
                         <button id="search-button" type="submit" class="row-fluid my-3"><span>Search</span></button>
                     </form>
 
@@ -38,10 +40,10 @@
                             </h2>
                         </div>
                     </div>
-                </div>
+                </section>
     
                 <!-- Column for displayed content -->
-                <div class="col row-cols-1">
+                <section class="col row-cols-1">
                     <!-- upper row for the displayed city -->
                     <div id="display-city" class="row">
                         <h3 id="city-name"></h3>
@@ -54,11 +56,11 @@
                     </div>
     
                     <!-- lower row for displayed forecast -->
-                    <div id="display-forecast" class="row my-3">
+                    <aside id="display-forecast" class="row my-3">
                         <h4>5-Day Forecast:</h4>
                         <div id="forecast-list" class="row justify-content-evenly"></div>
-                    </div>
-                </div>
+                    </aside>
+                </section>
             </div>
 
         </main>
