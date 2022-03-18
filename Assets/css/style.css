@@ -16,7 +16,7 @@ body {
     background-color: var(--theme-primary);
 }
 
-#search-button {
+.weather-buttons {
     background-color: var(--theme-accent2);
     border: none;
     border-radius: 5px;

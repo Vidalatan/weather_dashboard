@@ -38,7 +38,7 @@ function getCurrentCoordsWeather(coords, event=null, city=null) {
         $("#display-uvi").addClass(uviSeverity).text(data.current.uvi)
 
         $("#forecast-list").children().remove()    // Remove the forecast cards that may currently be present
-        for (index = 0; index < 5; index++) {
+        for (let index = 0; index < 5; index++) {
             let indexed_day = data.daily[index];
             let data_icon = "http://openweathermap.org/img/wn/"+data.daily[index].weather[0].icon+"\@2x.png"  // api data grabs link to appropriate weather icon for each day.
 
@@ -56,7 +56,7 @@ function getCurrentCoordsWeather(coords, event=null, city=null) {
 $("#search-bar").val(""); // Clear search bar text upon load
 // Get saved cities from local storage and put them into dashboard first
 if (localStorage.length > 0) {
-    for (index = 0; index < localStorage.length; index++) {
+    for (let index = 0; index < localStorage.length; index++) {
         if(localStorage.key(index).includes("weather-dash")) {
             let coords = JSON.parse(localStorage.getItem(localStorage.key(index)))
             let city_name = localStorage.key(index).substring(localStorage.key(index).indexOf(":")+1) // gets city name from substring of key using the ":" character
@@ -107,6 +107,23 @@ $('#search-button').on("click", event => {
     })
 })
 
+$("#clear-all-btn").on("click", event => {
+    event.preventDefault()
+    if(confirm("Are you sure you wish to clear your list of cities?")) {
+        $("#forecast-list").children().remove()
+
+        $("#saved-cities").children("#savedCitiesCollapse").remove()
+        const length = localStorage.length
+        for (let index = length-1; index >= 0; index--) {
+            if(localStorage.key(index).includes("weather-dash:")) {
+                console.log("removing " + localStorage.key(index));
+                localStorage.removeItem(localStorage.key(index));
+            }
+        }
+
+    }
+})
+
 $(document).keyup(event => {
     let proceed = false;
     (event.originalEvent.key === "Delete") && (proceed = confirm("Would you like to remove the currently displayed city from your saved list?"));
@@ -115,8 +132,9 @@ $(document).keyup(event => {
         let city_name = $("#city-name").text().substring(0, $("#city-name").text().indexOf("(")-1)
 
         $("#saved-cities").children("."+city_name.replace(/ /g, "-")).remove()
-        for (index = 0; index < localStorage.length; index++) {
-            if(localStorage.key(index).includes("weather-dash:"+city_name)) {
+        const iterLength = localStorage.length
+        for (let index = 0; index < iterLength; index++) {
+            if(localStorage.key(index).includes("weather-dash:")) {
                 localStorage.removeItem(localStorage.key(index));
             }
         }
